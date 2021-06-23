@@ -1,0 +1,11 @@
+import cv2
+img=cv2.imread(r'C:\Users\sange\Downloads\news.jpg')
+gray_conversion=cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
+gray_show=cv2.imshow("Gray image",gray_conversion)
+cv2.waitKey(0)
+gaussian_blur=cv2.GaussianBlur(gray_conversion,(3,3),5)
+cv2.imshow("Gaussian",gaussian_blur)
+cv2.waitKey(0)
+Adaptive_Threshhold=cv2.adaptiveThreshold(img,255,cv2.ADAPTIVE_THRESH_MEAN_C,cv2.THRESH_BINARY_INV,12,5)
+cv2.imshow("thresholded image",Adaptive_Threshhold)
+cv2.imwrite("adaptive.jpg",Adaptive_Threshhold)
